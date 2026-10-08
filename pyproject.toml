@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ema-lightning-demo"
+version = "0.1.0"
+description = "Fast, lightweight Turkish Text-to-Speech test environment and Web UI powered by EMA Lightning"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Ahmet Özmetin" }
+]
+keywords = ["tts", "text-to-speech", "turkish", "audio", "ema-lightning"]
+dependencies = [
+    "ema-lightning>=1.0.0",
+    "torch>=2.0.0",
+    "normalizer-tr>=0.4.0",
+    "huggingface-hub>=0.20.0",
+    "numpy>=1.24.0"
+]
