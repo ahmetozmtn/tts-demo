@@ -4,14 +4,34 @@ EMA Lightning TTS CLI Tool
 Synthesize Turkish text to WAV audio files directly from the terminal.
 """
 
-import argparse
+import os
 import sys
+
+# Sanal ortam aktif değilse ve yerel .venv varsa otomatik olarak .venv ile yeniden başlat
+_venv_python = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    ".venv",
+    "Scripts" if os.name == "nt" else "bin",
+    "python.exe" if os.name == "nt" else "python",
+)
+if os.path.exists(_venv_python) and os.path.abspath(sys.executable) != os.path.abspath(_venv_python):
+    os.execv(_venv_python, [_venv_python] + sys.argv)
+
+import argparse
 import time
 import subprocess
 import warnings
 warnings.filterwarnings("ignore")
-import torch
-from ema_lightning import EMA
+
+try:
+    import torch
+    from ema_lightning import EMA
+except ModuleNotFoundError as e:
+    print(f"\n[Hata] Gerekli Python kütüphanesi bulunamadı: '{e.name}'")
+    print("[İpucu] Lütfen sanal ortamı etkinleştirin veya bağımlılıkları yükleyin:")
+    print("        source .venv/bin/activate")
+    print("        pip install -r requirements.txt\n")
+    sys.exit(1)
 
 def get_compatible_device(requested_device):
     if requested_device != "auto":
