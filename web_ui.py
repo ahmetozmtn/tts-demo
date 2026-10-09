@@ -442,8 +442,8 @@ class TTSHandler(http.server.BaseHTTPRequestHandler):
 def run_server():
     server = http.server.ThreadingHTTPServer((HOST, PORT), TTSHandler)
     print("=" * 60)
-    print(f"🚀 EMA Lightning Web Test Ortamı Başlatıldı!")
-    print(f"🌐 Tarayıcınızda açın: http://localhost:{PORT}")
+    print(f"[*] EMA Lightning Web Test Ortamı Başlatıldı")
+    print(f"[*] Tarayıcınızda açın: http://localhost:{PORT}")
     print("=" * 60)
     try:
         server.serve_forever()

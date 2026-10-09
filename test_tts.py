@@ -45,7 +45,7 @@ def play_audio(filepath):
 
 def main():
     print("=" * 60)
-    print("⚡ EMA Lightning Türkçe TTS Model Testi")
+    print("EMA Lightning Türkçe TTS Model Testi")
     print("=" * 60)
 
     device = get_compatible_device()
@@ -137,7 +137,7 @@ def main():
         print(f"Sesleri dinlemek için 'aplay outputs/{test_cases[0]['filename']}' komutunu çalıştırabilir veya")
         print("testi doğrudan '--play' parametresiyle çalıştırabilirsiniz: python test_tts.py --play")
 
-    print("\n✅ Test tamamlandı!")
+    print("\n[✓] Test tamamlandı!")
 
 if __name__ == "__main__":
     main()
